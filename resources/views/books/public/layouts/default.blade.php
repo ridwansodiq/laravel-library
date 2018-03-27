@@ -7,8 +7,8 @@
     <!-- Title -->
     <title>@yield('title') | Book Library</title>
     <!-- Styles -->
-    <link type="text/css" rel="stylesheet" href="{{ URL::to('assets/books/material/css/materialize.min.css')}}"/>
-    <link type="text/css" rel="stylesheet" href="{{ URL::to('assets/books/css/custom.css')}}"/>
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css"/>
+    <link type="text/css" rel="stylesheet" href="https://s3-us-west-2.amazonaws.com/sodiqtests/library-assets/assets/books/css/custom.css"/>
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     @yield('styles')
 
@@ -34,9 +34,9 @@
 "><i class="material-icons">arrow_upward</i></a>
 </body>
 <!-- Javascripts -->
-<script src="{{ URL::to('assets/books/js/jquery/jquery.min.js')}}"></script>
-<script src="{{ URL::to('assets/books/material/js/materialize.min.js')}}"></script>
-<script src="{{ URL::to('assets/books/js/custom.js')}}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+<script src="https://s3-us-west-2.amazonaws.com/sodiqtests/library-assets/assets/books/js/custom.js"></script>
 <script>
     $(document).ready(function(){
         $("a#scrollTop").click(function() {
