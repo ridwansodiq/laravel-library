@@ -9,7 +9,7 @@
     <!-- Styles -->
     <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css"/>
     <link type="text/css" rel="stylesheet" href="https://s3-us-west-2.amazonaws.com/sodiqtests/library-assets/assets/books/css/custom.css"/>
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     @yield('styles')
 
 </head>
