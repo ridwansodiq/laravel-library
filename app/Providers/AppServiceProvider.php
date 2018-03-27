@@ -15,6 +15,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        if (env('APP_ENV') === 'production') {
+            URL::forceSchema('https');
+        }
         Validator::resolver(function($translator, $data, $rules, $messages)
         {
           return new UniqueUserReview($translator, $data, $rules, $messages);
