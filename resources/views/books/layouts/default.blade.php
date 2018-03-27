@@ -9,7 +9,7 @@
     <!-- Styles -->
     <link type="text/css" rel="stylesheet" href="{{ URL::to('assets/books/material/css/materialize.min.css')}}"/>
     <link type="text/css" rel="stylesheet" href="{{ URL::to('assets/books/css/custom.css')}}"/>
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     @yield('styles')
 
 </head>
