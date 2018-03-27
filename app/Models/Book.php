@@ -100,7 +100,7 @@ class Book extends Eloquent
         {
             $star = (int) $request->filter_star;
             $books->where('avg_ratings','>=',$star);
-            $books->where('avg_ratings','<=',$star + 1);
+            $books->where('avg_ratings','<',$star + 1);
         }           
         return $books->orderBy('created_at', 'desc')->paginate($paginate);
     }

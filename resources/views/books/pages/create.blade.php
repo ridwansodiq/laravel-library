@@ -48,7 +48,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="input-field col s6" >
+                        <div class="input-field col s12 m6" >
                             <div class="file-field input-field" style="margin-top:0;">
                                 <div class="btn">
                                     <span>File</span>
@@ -59,7 +59,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="input-field col s6">
+                        <div class="input-field col s12 m6">
                             <input id="publisher"  name="publisher" value="{{old('publisher')}}" required type="text" class="validate">
                             <label for="publisher">Publisher</label>
                         </div>
