@@ -1,0 +1,84 @@
+.nav-wrapper,.page-content {
+    padding: 0 1% 0 1%;
+}
+.page-content {
+    margin-top: 20px;
+    min-height: calc(100vh - 154px);
+}
+.arrow_nav_up{
+    display: none;
+    width: 100%;
+    text-align: right;
+}
+.arrow_nav_down{
+    display: block;
+    width: 100%;
+    text-align: right;
+}
+.checkbox-blue[type="checkbox"].filled-in:checked + label:after{
+     border: 2px solid #2081d7;
+     background-color: #2081d7;
+}
+.active .collapsible-header .arrow_nav_up{
+    display: block;
+}
+.active .collapsible-header .arrow_nav_down{
+    display: none;
+}
+.ratings .star {
+    color: orange;
+}
+
+.book-title{
+    height: 50px;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+ul.card-action-buttons {
+    float: right;
+    margin-top: -20px;
+}
+ul.card-action-buttons li {
+    float: left;
+}
+.card .btn-price {
+    width: 65px;
+    height: 65px;
+    font-weight: 600;
+    font-size: 1.0rem;
+    line-height: 65px;
+    margin: 10px;
+    position: absolute;
+    top: 0px;
+    letter-spacing: 0px;
+}
+.card .card-image {
+    position: relative;
+    height: 230px;
+}
+.review-summary li {
+    float: left;
+    margin-right: 10px;
+    color:orange;
+}
+.ratings span {
+    display: block;
+}
+.ratings .full-cont{
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    overflow: hidden;
+}
+.review-summary li .full-star{
+    display: block;
+    position: absolute;
+    width: 150px;
+    color:orange;
+}
+
+.loading{
+    display:none;
+}
