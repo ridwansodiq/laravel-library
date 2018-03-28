@@ -74,7 +74,7 @@
                         <p>{{$review->review}}</p>
                         <ul class="review-summary">
                             <li class="ratings" style="float:none">
-                                <span class="full-cont" style="width:{{$book->review_star_width}}px">
+                                <span class="full-cont" style="width:{{$review->review_star_width}}px">
                                     <span class="full-star">
                                         <i class="material-icons">star</i>
                                         <i class="material-icons">star</i>
