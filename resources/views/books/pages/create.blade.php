@@ -10,11 +10,11 @@
                 <form method="POST" action="{{route('book.create')}}" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="row">
-                        <div class="input-field col s6">
+                        <div class="input-field col s12 m6">
                         <input id="book_title" name="title" required type="text" value="{{old('title')}}" class="validate">
                         <label for="book_title">Book Title</label>
                         </div>
-                        <div class="input-field col s6">
+                        <div class="input-field col s12 m6">
                         <input id="isbn"  name="isbn" required type="text" value="{{old('isbn')}}" class="validate">
                         <label for="isbn">Book ISBN</label>
                         </div>

@@ -82,3 +82,6 @@ ul.card-action-buttons li {
 .loading{
     display:none;
 }
+.book-cover{
+    max-height: 450px;
+}

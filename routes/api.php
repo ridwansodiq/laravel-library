@@ -19,10 +19,10 @@ Route::group(['prefix' => 'v1'], function ($router) {
     Route::group(['middleware' => 'auth:api'], function () {        
         Route::get('logout', 'Api\AuthController@logout');
         Route::post('refresh', 'Api\AuthController@refresh');
-        Route::get('profile', 'Api\AuthController@me');
+        Route::get('user', 'Api\AuthController@me');
         Route::get('books','Api\BookController@getBooks');
         Route::get('book/{book}','Api\BookController@getBook');
-        Route::post('book/add','Api\BookController@postAddBook');
+        Route::post('book','Api\BookController@postAddBook');
         Route::post('review/create/{book}','Api\ReviewController@postAddReview');
         Route::get('categories','Api\CategoryController@getCategories');
     });

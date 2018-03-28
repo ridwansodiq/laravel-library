@@ -58,7 +58,9 @@ class Book extends Eloquent
     }
         
     public function getBook(){
-        return $this->load('reviews','category');
+        return $this->load(['category','reviews' => function ($query) {
+                $query->select('book_id','ratings','review','name');
+            }]);
     }
     
     public function getAll($paginate = ''){

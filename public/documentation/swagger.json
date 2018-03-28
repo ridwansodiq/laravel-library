@@ -1,0 +1,576 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "v1",
+    "title": "Library Web Service",
+    "description": "web service documentation"
+  },
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/login": {
+      "post": {
+        "tags": [
+          "login"
+        ],
+        "summary": "Login Endpoint",
+        "description": "Login to recieve access token",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Login credentials",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Login"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful response",
+            "schema": {
+              "$ref": "#/definitions/TokenData"
+            }
+          }
+        }
+      }
+    },
+    "/books": {
+      "get": {
+        "tags": [
+          "books"
+        ],
+        "summary": "Book list",
+        "description": "An array of all books",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/BookList"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/categories": {
+      "get": {
+        "tags": [
+          "categories"
+        ],
+        "summary": "Category list",
+        "description": "An array of all book categories",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/CategoryList"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/book": {
+      "post": {
+        "tags": [
+          "books"
+        ],
+        "summary": "Add Book Endpoint",
+        "description": "End point to upload a new book",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "isbn",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "title",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "author",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "published_year",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "publisher",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "book_category",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "book_cover",
+            "in": "formData",
+            "description": "Book cover",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/book/{bookID}": {
+      "get": {
+        "tags": [
+          "books"
+        ],
+        "summary": "Get Book",
+        "description": "An array of all books",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "bookID",
+            "in": "path",
+            "description": "ID of book to return",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/BookAll"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/user": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "User Profile",
+        "description": "An object of current user information",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/logout": {
+      "get": {
+        "tags": [
+          "logout"
+        ],
+        "summary": "Book list",
+        "description": "A paginated list of all books",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "The current page you would like to recieve",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/review/create/{bookID}": {
+      "post": {
+        "tags": [
+          "reviews"
+        ],
+        "summary": "Add book review Endpoint",
+        "description": "Endpoint to post review of a book",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "bookID",
+            "in": "path",
+            "description": "ID of book to return",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "User review",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReviewCreate"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    }
+  },
+  "host": "sodiq-library.herokuapp.com",
+  "basePath": "/api/v1",
+  "securityDefinitions": {
+    "api_key": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "definitions": {
+    "Login": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "TokenData": {
+      "type": "object",
+      "properties": {
+        "access_token": {
+          "type": "string"
+        },
+        "token_type": {
+          "type": "string"
+        },
+        "expires_in": {
+          "type": "integer"
+        }
+      }
+    },
+    "BookList": {
+      "type": "object",
+      "properties": {
+        "books": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Book"
+          }
+        }
+      }
+    },
+    "CategoryList": {
+      "type": "object",
+      "properties": {
+        "categories": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Category"
+          }
+        }
+      }
+    },
+    "Book": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "isbn": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "author": {
+          "type": "string"
+        },
+        "avg_ratings": {
+          "type": "integer"
+        },
+        "description": {
+          "type": "string"
+        },
+        "book_cover": {
+          "type": "string"
+        },
+        "published_year": {
+          "type": "integer"
+        },
+        "publisher": {
+          "type": "string"
+        },
+        "posted_by": {
+          "type": "string"
+        },
+        "status": {
+          "type": "integer"
+        },
+        "book_category": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "category": {
+          "$ref": "#/definitions/Category"
+        }
+      }
+    },
+    "BookAll": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "isbn": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "author": {
+          "type": "string"
+        },
+        "avg_ratings": {
+          "type": "integer"
+        },
+        "description": {
+          "type": "string"
+        },
+        "book_cover": {
+          "type": "string"
+        },
+        "published_year": {
+          "type": "integer"
+        },
+        "publisher": {
+          "type": "string"
+        },
+        "posted_by": {
+          "type": "string"
+        },
+        "status": {
+          "type": "integer"
+        },
+        "book_category": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "reviews": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Review"
+          }
+        },
+        "category": {
+          "$ref": "#/definitions/Category"
+        }
+      }
+    },
+    "Category": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "Review": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "book_id": {
+          "type": "string"
+        },
+        "ratings": {
+          "type": "integer"
+        },
+        "review": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "ReviewCreate": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "ratings": {
+          "type": "integer"
+        },
+        "review": {
+          "type": "string"
+        }
+      }
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}

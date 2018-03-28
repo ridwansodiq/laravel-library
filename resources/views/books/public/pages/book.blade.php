@@ -10,7 +10,7 @@
 <div class="container">
     <div class="row">
                     @include('books.public.layouts.includes.info')
-        <div class="col s12 m6"><img src="{{$book->book_cover}}" alt="product-img" class="responsive-img"></div>
+        <div class="col s12 m6 center"><img src="{{$book->book_cover}}" alt="product-img" class="responsive-img book-cover"></div>
         <div class="col s12 m6">
             <h3>{{$book->title}}</h3>
             <ul class="review-summary">
