@@ -14,63 +14,88 @@ use App\Http\Requests\SaveBook;
 class BookController extends Controller
 {
     private $book;
-
+    
+    /**
+    * Injecting the Book model into the book controller
+    *
+    */    
     public function __construct(Book $book)
     {
         $this->book = $book;
     }
+
+    /**
+     * Show the home page and passes book categories to the view.
+     *
+     * @return \Illuminate\Http\Response
+     */    
     public function getBookHome()
     {
-        // dd(Auth::check());
-        // $faker = Faker::create();
-        // $this->book->create([
-        //     'isbn' => $faker->isbn10,
-        //     'title' => $faker->sentence(5),
-        //     'author' => $faker->name($gender = 'male'|'female'),
-        //     'description' => $faker->text,
-        //     'book_cover' => $faker->imageUrl(400, 500, 'nature', true, 'Faker'),
-        //     'book_category'=> Category::all()->random(1)[0]->id,
-        //     'published_year' => $faker->year,
-        //     'publisher' => $faker->company,
-        //     'posted_by' => User::first()->id,
-        //     'status' => 1,
-        // ]);
         if(Auth::check()){
            return view('books.pages.list',['categories'=>Category::filterCategory()]);
         }
         return view('books.public.pages.list',['categories'=>Category::filterCategory()]);
-
     }
+    
+    /**
+     * Shows the book page using the book id passed into the param.
+     *
+     * @param \App\Models\Book
+     * @return \Illuminate\Http\Response
+     */ 
     public function getBook(Book $book)
     {
         if(Auth::check()){
            return view('books.pages.book',['book'=>$book->getBook()]);
         }
         return view('books.public.pages.book',['book'=>$book->getBook()]);
-
     }
-
+    
+    /**
+     * Returns a paginated view of all the books.
+     *
+     * @param \App\Models\Book
+     * @return \Illuminate\Http\Response
+     */
     public function getBooks()
     {
         return view('books.pages.books', ['books' => $this->book->getAll(6)]);
     }
+
+    /**
+     * A post request to filter all books using the search function in the book model.
+     *
+     * @param \Illuminate\Http\Request
+     * @return \Illuminate\Http\Response
+    */
     public function postBooks(Request $request)
     {
         return view('books.pages.books', ['books' => $this->book->search($request,6)]);
     }
     
-
+    /**
+     * Show the create book page and pass the book categories to the view.
+     *
+     * @param \Illuminate\Http\Request
+     * @return \Illuminate\Http\Response
+    */
     public function getCreateBook()
     {
         $categories = Category::all();
         return view('books.pages.create',['categories'=>$categories]);
     }
 
+    /**
+     * Post request function to create new book. 
+     *
+     * @param \App\Http\Requests\SaveBook
+     * @return \Illuminate\Http\Response
+    */
     public function postCreateBook(SaveBook $request)
     {
-         if($this->book->createBook($request))
+         if($this->book->createBook($request)){
              return redirect()->back()->with(['success'=>'New book successfully added.']);
-    
+         }
          return redirect()->back()->with(['fail'=>'Unable to create book, please try again.']);
     }
 }
