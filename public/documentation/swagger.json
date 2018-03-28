@@ -246,15 +246,6 @@
         "produces": [
           "application/json"
         ],
-        "parameters": [
-          {
-            "name": "page",
-            "in": "query",
-            "description": "The current page you would like to recieve",
-            "required": false,
-            "type": "integer"
-          }
-        ],
         "responses": {
           "200": {
             "description": "successful response",
