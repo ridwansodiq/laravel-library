@@ -7,7 +7,7 @@
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li class="{{(Request::is('/')) ? 'active' : (Request::is('book*') ? 'active' : '')}}"><a href="{{route('book.list')}}">Books</a></li>
       <li class="{{(Request::is('create*')) ? 'active' : ''}}"><a href="{{route('book.create')}}">Create</a></li>
-      <li><a href="{{ URL::to('documentation/')}}">Documentation</a></li>
+      <li><a href="{{ URL::to('documentation')}}/">Documentation</a></li>
       <li><a href="{{route('logout')}}">Logout</a></li>
            
     </ul>
@@ -16,6 +16,6 @@
   <ul id="slide-out" class="sidenav">
       <li class="{{(Request::is('/')) ? 'active' : (Request::is('book*') ? 'active' : '')}}"><a href="{{route('book.list')}}">Books</a></li>
       <li class="{{(Request::is('create*')) ? 'active' : ''}}"><a href="{{route('book.create')}}">Create</a></li>
-      <li><a href="{{ URL::to('documentation/')}}">Documentation</a></li>
+      <li><a href="{{ URL::to('documentation')}}/">Documentation</a></li>
       <li><a href="{{route('logout')}}">Logout</a></li>
   </ul>
