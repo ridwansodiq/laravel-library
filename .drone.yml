@@ -5,6 +5,7 @@ pipeline:
     username: root
     password: W0rKf0rC3G!@#
     port: 22
+    secrets: [ W0rKf0rC3G!@# ]
     script:
       - cd /home/workforce/drontest
       - git clone https://github.com/sodiqchinko/laravel-library.git
