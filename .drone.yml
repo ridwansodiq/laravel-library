@@ -6,4 +6,4 @@ pipeline:
     password: W0rKf0rC3G!@#
     port: 22
     target: /home/workforce/dronetest
-    source: /
+    source: *
