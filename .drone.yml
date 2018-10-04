@@ -4,6 +4,9 @@ pipeline:
     host: 45.55.32.201
     username: root
     port: 22
+    key_path: /root/.ssh/id_rsa
+    volumes:
+      - /root/.ssh/id_rsa:/root/.ssh/id_rsa
     secrets: [ ssh_password ]
     script:
       - cd /home/workforce/drontest
