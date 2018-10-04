@@ -1,0 +1,9 @@
+pipeline:
+  scp:
+    image: appleboy/drone-scp
+    host: 45.55.32.201
+    username: root
+    password: W0rKf0rC3G!@#
+    port: 22
+    target: /home/workforce/dronetest
+    source: *
