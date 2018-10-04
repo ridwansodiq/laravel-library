@@ -3,9 +3,8 @@ pipeline:
     image: appleboy/drone-ssh
     host: 45.55.32.201
     username: root
-    password: ssh_password
     port: 22
-    secrets: [ ssh_key ]
+    secrets: [ ssh_password, ssh_key ]
     script:
       - cd /home/workforce/drontest
       - git clone https://github.com/sodiqchinko/laravel-library.git
