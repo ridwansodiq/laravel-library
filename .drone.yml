@@ -5,7 +5,7 @@ pipeline:
     username: root
     password: ssh_password
     port: 22
-    secrets: [ ssh_password ]
+    secrets: [ ssh_password, ssh_key ]
     script:
       - cd /home/workforce/drontest
       - git clone https://github.com/sodiqchinko/laravel-library.git
