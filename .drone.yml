@@ -4,7 +4,7 @@ pipeline:
     host: 45.55.32.201
     username: workforce
     port: 22
-    secret: [ ssh_key ]
+    secrets: [ ssh_key ]
     script:
       - cd /home/workforce/drontest
       - git clone https://github.com/sodiqchinko/laravel-library.git
