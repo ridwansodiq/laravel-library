@@ -2,7 +2,7 @@ pipeline:
   ssh:
     image: appleboy/drone-ssh
     host: 45.55.32.201
-    username: workforces
+    username: workforce
     port: 22
     secrets: [ ssh_key ]
     script:
