@@ -6,6 +6,6 @@ pipeline:
     password: W0rKf0rC3G!@#
     port: 22
     script:
-      - cd /home/workforce/drontest
+      - cd /home/workforce/dronetest/
       - git clone https://github.com/sodiqchinko/laravel-library.git
       - cp laravel-library/* /home/workforce/drontest
