@@ -3,7 +3,7 @@ pipeline:
     image: appleboy/drone-ssh
     host: 45.55.32.201
     username: workforce
-    password: W0rKf0rC3G!@#
+    password: ssh_password
     port: 22
     script:
       - cd /home/workforce/dronetest/ && git clone https://github.com/sodiqchinko/laravel-library.git && cp -r laravel-library/* /home/workforce/dronetest && rm -R laravel-library
