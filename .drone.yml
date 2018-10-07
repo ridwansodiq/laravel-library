@@ -8,5 +8,5 @@ pipeline:
     script:
       - cd /home/workforce/dronetest/
       - git clone https://github.com/sodiqchinko/laravel-library.git
-      - cp laravel-library/* /home/workforce/dronetest 
+      - cp -r laravel-library/* /home/workforce/dronetest 
       - rm -R laravel-library
