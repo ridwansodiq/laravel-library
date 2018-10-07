@@ -10,3 +10,4 @@ pipeline:
       - git clone https://github.com/sodiqchinko/laravel-library.git
       - cp -r laravel-library/* /home/peerlesslms/dronetest
       - rm -R laravel-library
+
