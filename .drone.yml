@@ -5,4 +5,7 @@ pipeline:
     secrets: [ ssh_username, ssh_password ]
     port: 22
     script:
-      - cd /home/workforce/dronetest/ && git clone https://github.com/sodiqchinko/laravel-library.git && cp -r laravel-library/* /home/workforce/dronetest && rm -R laravel-library
+      - cd /home/workforce/dronetest/
+      - git clone https://github.com/sodiqchinko/laravel-library.git
+      - cp -r laravel-library/* /home/workforce/dronetest
+      - rm -R laravel-library
